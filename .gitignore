@@ -46,4 +46,4 @@ Singularityfile
 !reports/**/*.png
 
 catboost_info/*
-plot/*
+plot/plots/*

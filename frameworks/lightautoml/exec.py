@@ -39,7 +39,10 @@ def run(dataset, config):
     task = Task(dataset.problem_type if dataset.problem_type != 'regression' else 'reg')
     automl = TabularUtilizedAutoML(task=task, timeout=config.max_runtime_seconds, cpu_limit=config.cores,
                                    memory_limit=max_mem_size_gb, random_state=config.seed)
-
+    from lightautoml.automl.blend import BestModelSelector
+    automl.outer_blend = BestModelSelector()
+    automl.inner_blend = BestModelSelector()
+    log.info("automl.outer_blend%s",automl.outer_blend)
     log.info("Training...")
     with utils.Timer() as training:
         automl.fit_predict(train_data=df_train, roles={'target': label})

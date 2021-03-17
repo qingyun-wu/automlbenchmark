@@ -124,6 +124,12 @@ lightautoml:
   description: |
     LightAutoML (LAMA) project from Sberbank AI Lab AutoML group is the framework for automatic classification and regression model creation.
 
+lightautoml-noblend:
+  extends: lightautoml
+
+lightautoml-reallynoblend:
+  extends: lightautoml
+
 mljarsupervised:
   version: 'stable'
   description: |
